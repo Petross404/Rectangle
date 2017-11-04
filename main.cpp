@@ -12,8 +12,20 @@ int main(int argc, char** argv)
     Length l{4};
     if (argc > 1)
     {
-        w = argv[1];
-        l = argv[2];
+        if ((argv[1]) != NULL && (argv[2]) != NULL)
+        {
+            w = atoi(*argv[1]);
+            l = (int)(*argv[2]);
+            std::cout << w << " " << l << std::endl;
+        }
+    }
+    else
+    {
+        std::cout << "Set width and length : " << std::endl;
+        int i_w, i_l;
+        std::cin >> i_w >> i_l;
+        w.set_width(i_w);
+        l.set_length(i_l);
     }
     
     Rectangle* box = new Rectangle(w,l);
